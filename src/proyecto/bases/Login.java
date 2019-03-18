@@ -70,7 +70,6 @@ public class Login extends javax.swing.JFrame {
         boolean adm = false, tra = false;
         try {
             Statement st = cn.createStatement();
-
             ResultSet rs = st.executeQuery(sql), rv;
             while (rs.next()) {
                 if (rs.getString("usuario").equals(jTextField1.getText()) && rs.getString("contraseña").equals(jPasswordField1.getText()) && rs.getBoolean("admin")) {
@@ -93,10 +92,11 @@ public class Login extends javax.swing.JFrame {
                         vendedor = rv.getString("nombre");
                         id = rv.getInt("id");
                     }
-                    System.out.println(vendedor);
-                    System.out.println(id);
                     tra = true;
                     rv.close();
+                    Ventas ven1 = new Ventas(null, true);
+                    ven1.dvendedor(id);
+                    ven1.setVisible(true);
                     this.dispose();
                     break;
                 }
