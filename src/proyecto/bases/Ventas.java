@@ -82,7 +82,7 @@ public class Ventas extends javax.swing.JDialog {
             public boolean isCellEditable(int filas, int columnas){
                 return false;
             }
-        }
+        };
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -167,7 +167,7 @@ public class Ventas extends javax.swing.JDialog {
             public boolean isCellEditable(int filas, int columnas){
                 return false;
             }
-        }
+        };
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -207,7 +207,7 @@ public class Ventas extends javax.swing.JDialog {
             public boolean isCellEditable(int filas, int columnas){
                 return false;
             }
-        }
+        };
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
