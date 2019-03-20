@@ -79,12 +79,12 @@ public class Login extends javax.swing.JFrame {
             while (rs.next()) {
                 if (rs.getString("usuario").equals(jTextField1.getText()) && rs.getString("contraseña").equals(jPasswordField1.getText()) && rs.getBoolean("admin")) {
                     System.out.println("administrador");
-                    adm = true;rv = st.executeQuery("SELECT v.nombre, lo.id FROM vendedor v \n "
-                        + "INNER JOIN  login lo "
-                        + "ON v.id = lo.vendedor_id "
-                        + "WHERE lo.id = " + rs.getInt("id") + ";");
+                    adm = true;
+                    rv = st.executeQuery("SELECT * FROM vendedor "
+                        + "WHERE id = " + rs.getInt("vendedor_id") + ";");
                     if (rv.next()) {
                         vendedor = rv.getString("nombre");
+                        System.out.println(vendedor);
                         id = rv.getInt("id");
                     }
                     Compras c = new Compras(this, true);

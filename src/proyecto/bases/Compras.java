@@ -313,11 +313,12 @@ public final class Compras extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         llenarcompra();
+        llenardetallec();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void llenarcompra() {
         try {
             Statement c = n.conectar().createStatement();
-            ResultSet r = c.executeQuery("select id from proveedor");
+            ResultSet r = c.executeQuery("select * from proveedor");
             int id = 0;
             while (r.next()) {
                 if (r.getString("nombre").equals(jComboBox1.getSelectedItem())) {
@@ -346,11 +347,16 @@ public final class Compras extends javax.swing.JDialog {
             }
             while(model.getRowCount() != 0){
                 producto = model.getValueAt(0, 1).toString();
-                for(int i = 1; i < model.getRowCount(); i++){
+                model.removeRow(0);
+                for(int i = 0; i < model.getRowCount(); i++){
                     if(model.getValueAt(i, 1).equals(producto)){
                         total++;
+                        model.removeRow(i);
+                        i--;
                     }
                 }
+                System.out.println(total + " " + producto);
+                total = 1;
             }
         } catch (SQLException ex) {
             Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
