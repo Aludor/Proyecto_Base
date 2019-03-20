@@ -1,6 +1,8 @@
 
 package Clasesbd;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -11,7 +13,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import proyecto.bases.Conexion;
@@ -20,57 +25,43 @@ import proyecto.bases.Ventas;
 public class VentaRealizada {
     Conexion cx = new Conexion();
     Connection cn = cx.conectar();
-     Calendar cal = new GregorianCalendar();
-    int id, idv;
+    Calendar cal = new GregorianCalendar();
+    int id, idventa;
+    
     String fecha = cal.get(Calendar.YEAR)+"-"+cal.get(Calendar.MONTH+1)+"-"+cal.get(Calendar.DAY_OF_MONTH);
-    public void realizarventa(int id, JTable datos, double total){
-        venta(total, fecha, "1", id);
+    public void realizarventa(int idpersona, JTable datos1, double total){
+        id = idpersona;
+        venta(total, fecha, "1");
         generaridv();
-        leerlimpiartabla(datos);
+        leerlimpiartabla(datos1,0);
     }
     private void generaridv(){
         Statement s;
         try {
             s = cn.createStatement();
-            ResultSet r = s.executeQuery("select id from venta");
+            ResultSet r = s.executeQuery("select id from venta order by id asc");
                  while(r.next()){
-                    idv = r.getInt("id");
+                    idventa = r.getInt("id");
                 }
         } catch (SQLException ex) {
             Logger.getLogger(VentaRealizada.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
-    private void descripcionv(int idp, int idv, double precio){
+    private void descripcionv(int idp,int cantidad, double precio){
         try {
-             Statement s = cn.createStatement();
-             ResultSet r = s.executeQuery("select * from descripcionv");
-             boolean encontrado = true;
-             
-                 while(r.next()){
-                    if(r.getInt("producto_id") == idp && r.getInt("venta_id")== idv){
-                            PreparedStatement pps = s.getConnection().prepareStatement("update descripcionv set cantidad ='" + (r.getInt("cantidad")+1) +
-                            "'where producto_id = '" + r.getInt("producto_id") + "'");
-                            pps.executeUpdate();
-                            encontrado = false;
-                            break;
-                        }
-                    }
-                if(encontrado){
-                     PreparedStatement stm;
-                            stm = cn.prepareStatement("insert into descripcionv(producto_id, venta_id, cantidad, precio) values(?,?,?,?)");
-                            stm.setInt(1, idp);
-                            stm.setInt(2, idv);
-                            stm.setDouble(4, precio);
-                            stm.setInt(3, 1);
-                            stm.executeUpdate();
-                            stm.close();
-                }
-            
+                PreparedStatement stm;
+                stm = cn.prepareStatement("insert into descripcionv(producto_id, venta_id, cantidad, precio) values(?,?,?,?)");
+                stm.setInt(1, idp);
+                stm.setInt(2, idventa);
+                stm.setDouble(4, precio);
+                stm.setInt(3, cantidad);
+                stm.executeUpdate();
+                stm.close();
         } catch (SQLException ex) {
             Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void venta(Double total, String fecha, String nofactura,int id){
+    private void venta(Double total, String fecha, String nofactura){
         try {
             PreparedStatement stm;
             stm = cn.prepareStatement("insert into venta(total, fecha, nfactura, login_id) values(?,?,?,?)");
@@ -85,43 +76,46 @@ public class VentaRealizada {
         }
         
     }
-    private void restarbd(String nombre){
+    private void restarbd(String nombre, int cantidad){
         try {
             Statement s = cn.createStatement();
             ResultSet r = s.executeQuery("select * from producto");
                 while(r.next()){
                     if(r.getString("nombre").equals(nombre)){
-                        descripcionv(r.getInt("id"), idv, r.getDouble("precio"));
-                        PreparedStatement pps = s.getConnection().prepareStatement("update producto set cantidad ='" + (r.getInt("cantidad")-1) +
+                        PreparedStatement pps = s.getConnection().prepareStatement("update producto set cantidad ='" + (r.getInt("cantidad")-cantidad) +
                         "'where id = '" + r.getInt("id") + "'");
                         pps.executeUpdate();
+                        descripcionv(r.getInt("id"),cantidad, r.getDouble("precio"));
+                        System.out.println("dato = "+r.getInt("id"));
                         break;
                     }
                 }
         } catch (SQLException ex) {
             Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }
-    private void leerlimpiartabla(JTable datos){
+     }
+    private void leerlimpiartabla(JTable datos, int opcion){
         DefaultTableModel dtm = (DefaultTableModel) datos.getModel();
           int a = 0, filas = dtm.getRowCount();
           Object valor = new Object();
           String nombre;
-                        while(a < filas){
-                            valor = dtm.getValueAt(a, 1);
-                            nombre = String.valueOf(valor);
-                            restarbd(nombre);
-                            a++;
-                        }
-                        for (int i = filas; i >= 1; i--) {  
-                            dtm.removeRow(dtm.getRowCount()-1);
-                        }
+            if(opcion == 0){
+                while(a < filas){
+                    valor = dtm.getValueAt(a, 1);
+                    nombre = String.valueOf(valor);
+                    valor = dtm.getValueAt(a, 0);
+                    restarbd(nombre, (int)valor);
+                    a++;
+                }
+            }
+               for (int i = filas; i >= 1; i--) {  
+                    dtm.removeRow(dtm.getRowCount()-1);
+                 }
     }
     public void mostrardatos(JTable mostar, JLabel nomvendedor, int idvendedor){
         DefaultTableModel model = (DefaultTableModel) mostar.getModel();
         int filas = model.getRowCount();
-        leerlimpiartabla(mostar);
+        leerlimpiartabla(mostar,1);
         try {
             Statement st = cn.createStatement();
             ResultSet r = st.executeQuery("select v.nombre,vt.id, vt.fecha, vt.total "
@@ -132,7 +126,6 @@ public class VentaRealizada {
                     + "on vt.login_id = l.id "
                     + " where l.id = "+ idvendedor + ""
                     + " order by vt.id desc ");
-            //DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
                 while(r.next()){
                         Object[] producto = new Object[]{r.getInt("vt.id"),r.getDouble("vt.total"),r.getDate("vt.fecha"),0};
                         model.addRow(producto);
@@ -142,9 +135,10 @@ public class VentaRealizada {
             Logger.getLogger(VentaRealizada.class.getName()).log(Level.SEVERE, null, ex);
         }            
     }
-    public void mostrardescripcion(JTable datosmos, JLabel ttotal, int idvendedor){
+    public void mostrardescripcion(JTable datosmos, JLabel ttotal, int idnumeroventa){
        try {
-           leerlimpiartabla(datosmos);
+           DefaultTableModel model = (DefaultTableModel) datosmos.getModel();
+           leerlimpiartabla(datosmos,1);
            double precio = 0, total = 0;
             Statement st = cn.createStatement();
             ResultSet r = st.executeQuery("select p.nombre, p.precio, des.cantidad, vt.total "
@@ -153,15 +147,13 @@ public class VentaRealizada {
                     + "on vt.id = des.venta_id  "
                     + "inner join producto p "
                     + "on des.producto_id = p.id "
-                    + " where des.venta_id = " + idvendedor );
-            DefaultTableModel model = (DefaultTableModel) datosmos.getModel();
+                    + "where vt.id = " + idnumeroventa);
                 while(r.next()){
                         precio = r.getInt("des.cantidad")*r.getDouble("p.precio");
                         Object[] producto = new Object[]{r.getInt("des.cantidad"),r.getString("p.nombre"),precio};
                         model.addRow(producto);
                         total = r.getDouble("vt.total");
                         ttotal.setText(String.valueOf(total));
-                        
                 }           
         
         } catch (SQLException ex) {
