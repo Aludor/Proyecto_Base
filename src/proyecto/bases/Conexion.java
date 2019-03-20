@@ -14,7 +14,7 @@ public class Conexion {
     public Connection conectar() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
-            cx = (Connection) DriverManager.getConnection("jdbc:mariadb://localhost:3306/surtifiestas", "root", "Fercho.21");
+            cx = (Connection) DriverManager.getConnection("jdbc:mariadb://localhost:3306/surtifiestas", "root", "bases1");
             System.out.println("Conexion exitosa");
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("No se pudo conectar " + ex);
