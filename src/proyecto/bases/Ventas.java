@@ -351,15 +351,10 @@ public class Ventas extends javax.swing.JDialog {
             if(evt.getKeyCode() == 10){
                 while(r.next()){
                     if(r.getString("codigo").equals(jTextField1.getText())){
-                        if(model.getRowCount() == 0){
                             Object[] producto = new Object[]{1,r.getString("nombre"),r.getDouble("precio")};
                             total += r.getDouble("precio");
                             model.addRow(producto);
                             break;
-                        }else{
-                            asignar(r.getString("nombre"),1,r.getDouble("precio"));
-                            break;
-                        }
                     }
                 }
                 jTextField1.setText(null);

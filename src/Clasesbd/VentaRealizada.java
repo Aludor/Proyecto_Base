@@ -33,14 +33,15 @@ public class VentaRealizada {
         id = idpersona;
         venta(total, fecha, "1");
         generaridv();
-        leerlimpiartabla(datos1,0);
+        contartabla(datos1);
     }
     private void generaridv(){
         Statement s;
         try {
             s = cn.createStatement();
-            ResultSet r = s.executeQuery("select id from venta order by id asc");
-                 while(r.next()){
+            ResultSet r = s.executeQuery("select id from venta "
+                    + "where id = (select max(id) from venta) ");
+                 if(r.next()){
                     idventa = r.getInt("id");
                 }
         } catch (SQLException ex) {
@@ -94,20 +95,28 @@ public class VentaRealizada {
             Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-    private void leerlimpiartabla(JTable datos, int opcion){
+    private void contartabla(JTable datoscontados){
+        DefaultTableModel model = (DefaultTableModel)datoscontados.getModel();
+         int total = 1;
+         String producto = "";
+            while(model.getRowCount() != 0){
+                producto = model.getValueAt(0, 1).toString();
+                model.removeRow(0);
+                for(int i = 0; i < model.getRowCount(); i++){
+                    if(model.getValueAt(i, 1).equals(producto)){
+                        total++;
+                        model.removeRow(i);
+                        i--;
+                    }
+                }
+                System.out.println(total + " " + producto);
+                restarbd(producto, total);
+                total = 1;
+            }
+    }
+    private void limpiartabla(JTable datos){
         DefaultTableModel dtm = (DefaultTableModel) datos.getModel();
           int a = 0, filas = dtm.getRowCount();
-          Object valor = new Object();
-          String nombre;
-            if(opcion == 0){
-                while(a < filas){
-                    valor = dtm.getValueAt(a, 1);
-                    nombre = String.valueOf(valor);
-                    valor = dtm.getValueAt(a, 0);
-                    restarbd(nombre, (int)valor);
-                    a++;
-                }
-            }
                for (int i = filas; i >= 1; i--) {  
                     dtm.removeRow(dtm.getRowCount()-1);
                  }
@@ -115,7 +124,7 @@ public class VentaRealizada {
     public void mostrardatos(JTable mostar, JLabel nomvendedor, int idvendedor){
         DefaultTableModel model = (DefaultTableModel) mostar.getModel();
         int filas = model.getRowCount();
-        leerlimpiartabla(mostar,1);
+        limpiartabla(mostar);
         try {
             Statement st = cn.createStatement();
             ResultSet r = st.executeQuery("select v.nombre,vt.id, vt.fecha, vt.total "
@@ -138,7 +147,7 @@ public class VentaRealizada {
     public void mostrardescripcion(JTable datosmos, JLabel ttotal, int idnumeroventa){
        try {
            DefaultTableModel model = (DefaultTableModel) datosmos.getModel();
-           leerlimpiartabla(datosmos,1);
+           limpiartabla(datosmos);
            double precio = 0, total = 0;
             Statement st = cn.createStatement();
             ResultSet r = st.executeQuery("select p.nombre, p.precio, des.cantidad, vt.total "

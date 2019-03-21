@@ -98,10 +98,8 @@ public class Login extends javax.swing.JFrame {
                     System.out.println("trabajador");
                     rs.close();
                     System.out.println(rs.getInt("id"));
-                    rv = st.executeQuery("SELECT v.nombre, lo.id FROM vendedor v \n "
-                        + "INNER JOIN  login lo "
-                        + "ON v.id = lo.vendedor_id "
-                        + "WHERE lo.id = " + rs.getInt("id") + ";");
+                    rv = st.executeQuery("SELECT * FROM vendedor "
+                            + "WHERE id = " + rs.getInt("vendedor_id"));
                     if (rv.next()) {
                         vendedor = rv.getString("nombre");
                         id = rv.getInt("id");
