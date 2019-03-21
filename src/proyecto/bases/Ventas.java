@@ -48,6 +48,8 @@ public class Ventas extends javax.swing.JDialog {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jPopupMenu2 = new javax.swing.JPopupMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         Menu = new javax.swing.JTabbedPane();
         panel1 = new java.awt.Panel();
         jTextField1 = new javax.swing.JTextField();
@@ -80,6 +82,14 @@ public class Ventas extends javax.swing.JDialog {
         });
         jPopupMenu1.add(jMenuItem1);
 
+        jMenuItem2.setText("ELIMINAR");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jPopupMenu2.add(jMenuItem2);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Menu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -107,6 +117,7 @@ public class Ventas extends javax.swing.JDialog {
                 "CANTIDAD", "DESCRIPCION", "PRECIO"
             }
         ));
+        jTable1.setComponentPopupMenu(jPopupMenu2);
         jScrollPane1.setViewportView(jTable1);
 
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -409,6 +420,12 @@ public class Ventas extends javax.swing.JDialog {
         lg.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        model.removeRow(jTable1.getSelectedRow());
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -466,7 +483,9 @@ public class Ventas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
