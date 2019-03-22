@@ -155,7 +155,7 @@ public class Ventas extends javax.swing.JDialog {
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 48, Short.MAX_VALUE)))
+                        .addGap(0, 146, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
@@ -224,7 +224,7 @@ public class Ventas extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 899, Short.MAX_VALUE)
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +262,7 @@ public class Ventas extends javax.swing.JDialog {
         panel3.setLayout(panel3Layout);
         panel3Layout.setHorizontalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 899, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,7 +287,9 @@ public class Ventas extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,7 +370,6 @@ public class Ventas extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         int filas = dtm.getRowCount();
-<<<<<<< HEAD
             if (filas == 0 ) {
                 JOptionPane.showMessageDialog(rootPane, "NO HAY PRODCUTOS", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
@@ -378,20 +379,6 @@ public class Ventas extends javax.swing.JDialog {
                 total = 0;  
             }
        jTextField1.requestFocus();
-        
-=======
-        if (filas == 0) {
-            JOptionPane.showMessageDialog(rootPane, "NO HAY PRODCUTOS", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            //Vr.realizarventa(id, jTable1, total);
-            Vr.realizarventa(id, jTable1, total);
-            jLabel1.setText("0");
-            jLabel2.setText("0");
-            total = 0;
-        }
-        jTextField1.requestFocus();
-
->>>>>>> 77978084a24787e67e7aa76ec60e56f071030a68
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -400,12 +387,7 @@ public class Ventas extends javax.swing.JDialog {
             Object valor = new Object();
             DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
             valor = dtm.getValueAt(jTable2.getSelectedRow(), 0);
-<<<<<<< HEAD
-            Vr.mostrardescripcion(jTable3, jLabel8, (int)valor);
-=======
-            System.out.println("descripcion valor = " + valor);
             Vr.mostrardescripcion(jTable3, jLabel8, (int) valor);
->>>>>>> 77978084a24787e67e7aa76ec60e56f071030a68
         }
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -416,13 +398,8 @@ public class Ventas extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-<<<<<<< HEAD
-        // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         total -= (double)model.getValueAt(jTable1.getSelectedRow(), 2);
-=======
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
->>>>>>> 77978084a24787e67e7aa76ec60e56f071030a68
         model.removeRow(jTable1.getSelectedRow());
         jLabel2.setText(String.valueOf(total));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
