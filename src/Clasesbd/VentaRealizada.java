@@ -9,10 +9,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.print.attribute.standard.DateTimeAtCompleted;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -21,6 +24,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import proyecto.bases.Conexion;
 import proyecto.bases.Ventas;
+import sun.security.util.AbstractAlgorithmConstraints;
 
 public class VentaRealizada {
     Conexion cx = new Conexion();
@@ -29,9 +33,10 @@ public class VentaRealizada {
     int id, idventa;
     
     String fecha = cal.get(Calendar.YEAR)+"-"+cal.get(Calendar.MONTH+1)+"-"+cal.get(Calendar.DAY_OF_MONTH);
+    Time hors = Time.valueOf(String.valueOf(cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND)));
     public void realizarventa(int idpersona, JTable datos1, double total){
         id = idpersona;
-        venta(total, fecha, "1");
+        venta(total, fecha, "1",hors);
         generaridv();
         contartabla(datos1);
     }
@@ -62,14 +67,15 @@ public class VentaRealizada {
             Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void venta(Double total, String fecha, String nofactura){
+    private void venta(Double total, String fecha, String nofactura, Time hors){
         try {
             PreparedStatement stm;
-            stm = cn.prepareStatement("insert into venta(total, fecha, nfactura, login_id) values(?,?,?,?)");
+            stm = cn.prepareStatement("insert into venta(total, fecha, nfactura, login_id, hora) values(?,?,?,?,?)");
             stm.setDouble(1, total);
             stm.setDate(2, Date.valueOf(fecha));
             stm.setString(3, nofactura);
             stm.setInt(4, id);
+            stm.setTime(5, hors);
             stm.executeUpdate();
             stm.close();
         } catch (SQLException ex) {
@@ -109,7 +115,7 @@ public class VentaRealizada {
                         i--;
                     }
                 }
-                System.out.println(total + " " + producto);
+                //System.out.println(total + " " + producto);
                 restarbd(producto, total);
                 total = 1;
             }
@@ -127,7 +133,7 @@ public class VentaRealizada {
         limpiartabla(mostar);
         try {
             Statement st = cn.createStatement();
-            ResultSet r = st.executeQuery("select v.nombre,vt.id, vt.fecha, vt.total "
+            ResultSet r = st.executeQuery("select v.nombre,vt.id, vt.fecha, vt.total, vt.hora "
                     + "from vendedor v "
                     + "inner join login l "
                     + "on v.id = l.vendedor_id  "
@@ -136,7 +142,7 @@ public class VentaRealizada {
                     + " where l.id = "+ idvendedor + ""
                     + " order by vt.id desc ");
                 while(r.next()){
-                        Object[] producto = new Object[]{r.getInt("vt.id"),r.getDouble("vt.total"),r.getDate("vt.fecha"),0};
+                        Object[] producto = new Object[]{r.getInt("vt.id"),r.getDouble("vt.total"),r.getDate("vt.fecha"),r.getTime("vt.hora")};
                         model.addRow(producto);
                         nomvendedor.setText(r.getString("v.nombre"));
                 }
@@ -159,7 +165,7 @@ public class VentaRealizada {
                     + "where vt.id = " + idnumeroventa);
                 while(r.next()){
                         precio = r.getInt("des.cantidad")*r.getDouble("p.precio");
-                        Object[] producto = new Object[]{r.getInt("des.cantidad"),r.getString("p.nombre"),precio};
+                        Object[] producto = new Object[]{r.getInt("des.cantidad"),r.getString("p.nombre"),r.getDouble("precio"),precio};
                         model.addRow(producto);
                         total = r.getDouble("vt.total");
                         ttotal.setText(String.valueOf(total));
