@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/hp/Documents/Proyecto_Base/src/proyecto/bases/Ventas.java</file>
+=======
+            <file>file:/C:/Users/MAX48/Documents/NetBeansProjects/Proyecto%20Bases/src/proyecto/bases/Compras.java</file>
+            <file>file:/C:/Users/MAX48/Documents/NetBeansProjects/Proyecto%20Bases/src/proyecto/bases/Login.java</file>
+            <file>file:/C:/Users/MAX48/Documents/NetBeansProjects/Proyecto%20Bases/src/proyecto/bases/Conexion.java</file>
+            <file>file:/C:/Users/MAX48/Documents/NetBeansProjects/Proyecto%20Bases/src/proyecto/bases/Ventas.java</file>
+>>>>>>> 77978084a24787e67e7aa76ec60e56f071030a68
         </group>
     </open-files>
 </project-private>

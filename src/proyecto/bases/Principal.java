@@ -4,6 +4,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         setTitle("Principal");
+        setLocationRelativeTo(null);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

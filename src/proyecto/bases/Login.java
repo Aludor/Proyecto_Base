@@ -88,7 +88,7 @@ public class Login extends javax.swing.JFrame {
                         id = rv.getInt("id");
                     }
                     Compras c = new Compras(this, true);
-                    c.getid(id);
+                    c.getid(id);                    
                     this.dispose();
                     Principal p = new Principal();
                     p.setVisible(true);
@@ -118,20 +118,17 @@ public class Login extends javax.swing.JFrame {
             }
             jTextField1.setText(null);
             jPasswordField1.setText(null);
-
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         buscarusuario();
         jTextField1.requestFocus();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
-        // TODO add your handling code here:
         if(evt.getKeyCode() == 10){
             buscarusuario();
             jTextField1.requestFocus();

@@ -22,7 +22,8 @@ public final class Compras extends javax.swing.JDialog {
     }
     Conexion n = new Conexion();
     double total = 0;
-    int idlogin = 0;
+    int idp = 0;
+    static int idlogin = 0;
     public void proveedor() {
         try {
             Statement c = n.conectar().createStatement();
@@ -96,7 +97,7 @@ public final class Compras extends javax.swing.JDialog {
         jLabel6.setText("TOTAL");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel7.setText("0");
+        jLabel7.setText("0.0");
 
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -116,6 +117,11 @@ public final class Compras extends javax.swing.JDialog {
             }
         });
 
+        jTable1 = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -154,7 +160,7 @@ public final class Compras extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +174,7 @@ public final class Compras extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(17, 17, 17)
-                                .addComponent(jComboBox1, 0, 100, Short.MAX_VALUE))))
+                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -213,7 +219,7 @@ public final class Compras extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("COMPRA", jPanel1);
@@ -222,11 +228,11 @@ public final class Compras extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGap(0, 567, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 245, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("DETALLE COMPRA", jPanel2);
@@ -235,11 +241,11 @@ public final class Compras extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGap(0, 567, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 245, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("DESCRIPCION COMPRA", jPanel3);
@@ -281,10 +287,10 @@ public final class Compras extends javax.swing.JDialog {
                         if (r.getString("codigo").equals(jTextField1.getText())) {
                             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
                             total += Double.parseDouble(jTextField3.getText());
-                            Object[] o = new Object[]{jTextField2.getText(), r.getString(3), d.format(precio)};
+                            Object[] o = new Object[]{Integer.parseInt(jTextField2.getText()), r.getString(3), d.format(precio)};
                             model.addRow(o);
                             jTable1.setModel(model);
-                            jLabel7.setText(String.valueOf(total));
+                            jLabel7.setText(String.valueOf(d.format(total)));
                         }
                     }
                     jTextField1.setText("");
@@ -302,18 +308,52 @@ public final class Compras extends javax.swing.JDialog {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        total -= Double.parseDouble(model.getValueAt(jTable1.getSelectedRow(), 0).toString()) * Double.parseDouble(model.getValueAt(jTable1.getSelectedRow(), 2).toString());
-        jLabel7.setText(String.valueOf(total));
+        DecimalFormat d = new DecimalFormat("#.00");
         int[] rows = jTable1.getSelectedRows();
-        System.out.println(rows.length);
-        for (int i = rows.length - 1; i > -1; i--) {
+        for (int i = rows.length - 1; i > -1; i--) {            
+            total -= Double.parseDouble(model.getValueAt(i, 0).toString()) * Double.parseDouble(model.getValueAt(i, 2).toString());
+            System.out.println(total);
+            total = redondearDecimales(total, 1);
+            System.out.println(total);
             model.removeRow(rows[i]);
         }
+        jLabel7.setText(String.valueOf(d.format(total)));
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        llenarcompra();
-        llenardetallec();
+        if(jTable1.getRowCount() == 0){
+            JOptionPane.showMessageDialog(this, "INGRESE PRODUCTOS");
+        }
+        else if(jTextField4.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "INGRESE NUMERO DE FACTURA");
+        }
+        else if(jComboBox1.getItemCount() == 0){
+            JOptionPane.showMessageDialog(this, "INGRESE PROVEEDOR");
+        }
+        else{
+            try {
+                boolean encontrado = true;
+                Statement c = n.conectar().createStatement();
+                ResultSet r = c.executeQuery("select nfactura from compra");
+                while(r.next()){
+                    if(r.getString("nfactura").equals(jTextField4.getText())){
+                        JOptionPane.showMessageDialog(this, "FACTURA REPETIDA");
+                        encontrado = false;
+                        break;
+                    }
+                }
+                if(encontrado){                    
+                    llenarcompra();            
+                    llenardetallec();
+                }
+                jTextField4.setText("");
+                jLabel7.setText("0.0");
+                r.close();
+                c.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     public void llenarcompra() {
         try {
@@ -340,29 +380,60 @@ public final class Compras extends javax.swing.JDialog {
             Statement c = n.conectar().createStatement();
             ResultSet r = c.executeQuery("select id from compra where id = (select max(id) from compra)");
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            int id = 0, total = 1;
+            int idc = 0, cantidad = 0;
+            double precio = 0;
+            System.out.println(idlogin);
             String producto = "";
             if(r.next()){
-                id = r.getInt("id");
+                idc = r.getInt("id");
             }
             while(model.getRowCount() != 0){
                 producto = model.getValueAt(0, 1).toString();
-                model.removeRow(0);
-                for(int i = 0; i < model.getRowCount(); i++){
-                    if(model.getValueAt(i, 1).equals(producto)){
-                        total++;
-                        model.removeRow(i);
-                        i--;
+                precio = Double.parseDouble(model.getValueAt(0, 2).toString());
+                cantidad = Integer.parseInt(model.getValueAt(0, 0).toString());
+                model.removeRow(0);                
+                r = c.executeQuery("select * from producto");
+                while(r.next()){
+                    if(r.getString("nombre").equals(producto)){
+                        idp = r.getInt("id");
+                        break;
                     }
                 }
-                System.out.println(total + " " + producto);
-                total = 1;
+                for(int i = 0; i < model.getRowCount(); i++){
+                    if(model.getValueAt(i, 1).equals(producto)){
+                        cantidad += Integer.parseInt(model.getValueAt(i, 0).toString());
+                        model.removeRow(i);
+                        i--;                        
+                    }
+                }
+                c.executeUpdate("insert into descripcionc(compra_id,producto_id,precio,cantidad) values("+idc+","+idp+","+precio+","+cantidad+")");
+                actualizarinventario(cantidad);
+                r.close();
+                c.close();
             }
         } catch (SQLException ex) {
             Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    public void actualizarinventario(int total){
+        try {
+            int existencia = 0;
+            Statement c = n.conectar().createStatement();
+            ResultSet r = c.executeQuery("select * from producto");
+            while(r.next()){
+                if(r.getInt("id") == idp){
+                    existencia = r.getInt("cantidad");
+                    existencia += total;
+                    break;
+                }
+            }
+            c.executeUpdate("update producto set cantidad = " + existencia + " where id = " + idp);
+            r.close();
+            c.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -376,6 +447,20 @@ public final class Compras extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+    public static double redondearDecimales(double valorInicial, int numeroDecimales) {
+        double parteEntera, resultado;
+        resultado = valorInicial;
+        parteEntera = Math.floor(resultado);
+        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales);
+        if(resultado < 0){
+            resultado=Math.ceil(resultado);            
+        }
+        else{            
+            resultado=Math.floor(resultado);
+        }
+        resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
+        return resultado;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

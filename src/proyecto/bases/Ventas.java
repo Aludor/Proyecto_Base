@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto.bases;
 
 import Clasesbd.VentaRealizada;
@@ -12,27 +6,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Fernando
- */
 public class Ventas extends javax.swing.JDialog {
-
-    /**
-     * Creates new form Ventas
-     */
     public Ventas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        //imagens();
     }
     VentaRealizada Vr = new VentaRealizada();
     Conexion cx = new Conexion();
@@ -313,60 +296,55 @@ public class Ventas extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void dvendedor(int idvendedor, String nomb){
+    public void dvendedor(int idvendedor, String nomb) {
         id = idvendedor;
         Nonbrev = nomb;
         jLabel9.setText(Nonbrev);
     }
-    public void imagens(){
-        ImageIcon imagen = new ImageIcon("src"+File.separator+"imagenes"+File.separator+"salir.jpg");
+    public void imagens() {
+        ImageIcon imagen = new ImageIcon("src" + File.separator + "imagenes" + File.separator + "salir.jpg");
         imagen = new ImageIcon(imagen.getImage().getScaledInstance(WIDTH, HEIGHT, WIDTH));
         jLabel10.setIcon(imagen);
     }
-    
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
-        
         if (Menu.getSelectedIndex() == 0) {
-            
-        }
-        else if (Menu.getSelectedIndex() == 1) {
+        } else if (Menu.getSelectedIndex() == 1) {
             Vr.mostrardatos(jTable2, jLabel6, id);
-        }
-        else if (Menu.getSelectedIndex() == 2) {
+        } else if (Menu.getSelectedIndex() == 2) {
             //Menu.setSelectedIndex(1);
         }
     }//GEN-LAST:event_MenuMouseClicked
-    public void asignar(String cadena, int cantidad, double precio){
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+    public void asignar(String cadena, int cantidad, double precio) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         boolean encontrado = true;
         for (int i = 0; i < model.getRowCount(); i++) {
-            if(model.getValueAt(i, 1).equals(cadena)){
-                model.setValueAt((int)model.getValueAt(i, 0)+1, i, 0);
+            if (model.getValueAt(i, 1).equals(cadena)) {
+                model.setValueAt((int) model.getValueAt(i, 0) + 1, i, 0);
                 total += precio;
                 encontrado = false;
                 break;
             }
         }
-        if(encontrado){
-                Object[] producto = new Object[]{cantidad,cadena,precio};
-                model.addRow(producto);
-                total += precio;
+        if (encontrado) {
+            Object[] producto = new Object[]{cantidad, cadena, precio};
+            model.addRow(producto);
+            total += precio;
         }
     }
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-            Statement s;
+        Statement s;
         try {
             s = cn.createStatement();
             ResultSet r = s.executeQuery("select * from producto ");
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             int n = model.getRowCount();
-            if(evt.getKeyCode() == 10){
-                while(r.next()){
-                    if(r.getString("codigo").equals(jTextField1.getText())){
-                            Object[] producto = new Object[]{1,r.getString("nombre"),r.getDouble("precio")};
-                            total += r.getDouble("precio");
-                            model.addRow(producto);
-                            break;
+            if (evt.getKeyCode() == 10) {
+                while (r.next()) {
+                    if (r.getString("codigo").equals(jTextField1.getText())) {
+                        Object[] producto = new Object[]{1, r.getString("nombre"), r.getDouble("precio")};
+                        total += r.getDouble("precio");
+                        model.addRow(producto);
+                        break;
                     }
                 }
                 jTextField1.setText(null);
@@ -378,7 +356,7 @@ public class Ventas extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
-        if(evt.getKeyCode() == 10){
+        if (evt.getKeyCode() == 10) {
             double cambio = Double.parseDouble(jTextField2.getText());
             cambio -= Double.parseDouble(jLabel2.getText());
             jLabel4.setText(String.valueOf(cambio));
@@ -390,6 +368,7 @@ public class Ventas extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         int filas = dtm.getRowCount();
+<<<<<<< HEAD
             if (filas == 0 ) {
                 JOptionPane.showMessageDialog(rootPane, "NO HAY PRODCUTOS", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
@@ -400,15 +379,33 @@ public class Ventas extends javax.swing.JDialog {
             }
        jTextField1.requestFocus();
         
+=======
+        if (filas == 0) {
+            JOptionPane.showMessageDialog(rootPane, "NO HAY PRODCUTOS", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            //Vr.realizarventa(id, jTable1, total);
+            Vr.realizarventa(id, jTable1, total);
+            jLabel1.setText("0");
+            jLabel2.setText("0");
+            total = 0;
+        }
+        jTextField1.requestFocus();
+
+>>>>>>> 77978084a24787e67e7aa76ec60e56f071030a68
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        if(evt.getClickCount()==2){
+        if (evt.getClickCount() == 2) {
             Menu.setSelectedIndex(2);
             Object valor = new Object();
             DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
             valor = dtm.getValueAt(jTable2.getSelectedRow(), 0);
+<<<<<<< HEAD
             Vr.mostrardescripcion(jTable3, jLabel8, (int)valor);
+=======
+            System.out.println("descripcion valor = " + valor);
+            Vr.mostrardescripcion(jTable3, jLabel8, (int) valor);
+>>>>>>> 77978084a24787e67e7aa76ec60e56f071030a68
         }
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -419,42 +416,18 @@ public class Ventas extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+<<<<<<< HEAD
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         total -= (double)model.getValueAt(jTable1.getSelectedRow(), 2);
+=======
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+>>>>>>> 77978084a24787e67e7aa76ec60e56f071030a68
         model.removeRow(jTable1.getSelectedRow());
         jLabel2.setText(String.valueOf(total));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Ventas dialog = new Ventas(new javax.swing.JFrame(), true);
