@@ -13,7 +13,9 @@ import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.plaf.RootPaneUI;
 import javax.swing.table.DefaultTableModel;
 import proyecto.bases.Conexion;
 import proyecto.bases.Ventas;
@@ -163,5 +165,26 @@ public class VentaRealizada {
         } catch (SQLException ex) {
             Logger.getLogger(VentaRealizada.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public double verificarexistencia(JTable verificar, String buscar,int cantidad, double total, JLabel mostrar){
+        DefaultTableModel model = (DefaultTableModel)verificar.getModel();
+        int contar=0; 
+            for (int i = 0; i < model.getRowCount(); i++) {
+                if(buscar.equals(model.getValueAt(i, 1))){
+                    contar++;
+                }
+            }   
+            
+            System.out.println(contar +">>>"+cantidad);
+            if(contar > cantidad){
+                JOptionPane.showMessageDialog(null, "NO HAY MAS PRODUCTOS EN EXISTENCIA", "Error", JOptionPane.ERROR_MESSAGE);
+                 total -=(Double) model.getValueAt((model.getRowCount()-1), 2);
+                 System.out.println("t="+""+total);
+                model.removeRow((model.getRowCount()-1));
+                mostrar.setText(String.valueOf(total));
+            }else{
+                mostrar.setText(String.valueOf(total));
+               System.out.println("t2 ="+""+total); }
+            return total;
     }
 }
