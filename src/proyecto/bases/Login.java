@@ -86,11 +86,10 @@ public class Login extends javax.swing.JFrame {
                         vendedor = rv.getString("nombre");
                         System.out.println(vendedor);
                         id = rv.getInt("id");
-                    }
-                    Compras c = new Compras(this, true);
-                    c.getid(id);                    
+                    }         
                     this.dispose();
-                    Principal p = new Principal();
+                    Menu p = new Menu();
+                    p.datos(id,vendedor,1);
                     p.setVisible(true);
                     break;
                 }
@@ -107,7 +106,7 @@ public class Login extends javax.swing.JFrame {
                     tra = true;
                     rv.close();
                     Ventas ven1 = new Ventas(null, false);
-                    ven1.dvendedor(id, vendedor);
+                    ven1.dvendedor(id, vendedor,0);
                     ven1.setVisible(true);
                     this.setVisible(false);
                     break;

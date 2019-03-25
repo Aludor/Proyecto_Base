@@ -20,10 +20,9 @@ public class Ventas extends javax.swing.JDialog {
     VentaRealizada Vr = new VentaRealizada();
     Conexion cx = new Conexion();
     Connection cn = cx.conectar();
-    String list[];
     double total = 0;
     int idv;
-    static int id;
+    static int id, posc= 0;
     static String Nonbrev;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -294,9 +293,10 @@ public class Ventas extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void dvendedor(int idvendedor, String nomb) {
+    public void dvendedor(int idvendedor, String nomb, int pos) {
         id = idvendedor;
         Nonbrev = nomb;
+        posc = pos;
         jLabel9.setText(Nonbrev);
     }
     public void imagens() {
@@ -389,8 +389,14 @@ public class Ventas extends javax.swing.JDialog {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         this.setVisible(false);
-        Login lg = new Login();
-        lg.setVisible(true);
+        if(posc ==0){
+              Login lg = new Login();
+              lg.setVisible(true);
+        }else{
+            Menu m = new Menu();
+            m.setVisible(true);
+        }
+      
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
