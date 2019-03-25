@@ -6,12 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.plaf.RootPaneUI;
 import javax.swing.table.DefaultTableModel;
 import proyecto.bases.Conexion;
 import proyecto.bases.Ventas;
@@ -21,10 +25,11 @@ public class VentaRealizada {
     Connection cn = cx.conectar();
     Calendar cal = new GregorianCalendar();
     int id, idventa;
-    String fecha = cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH + 1) + "-" + cal.get(Calendar.DAY_OF_MONTH);
-    public void realizarventa(int idpersona, JTable datos1, double total) {
+    String fecha = cal.get(Calendar.YEAR)+"-"+cal.get(Calendar.MONTH+1)+"-"+cal.get(Calendar.DAY_OF_MONTH);
+    Time hors = Time.valueOf(String.valueOf(cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND)));
+    public void realizarventa(int idpersona, JTable datos1, double total){
         id = idpersona;
-        venta(total, fecha, "1");
+        venta(total, fecha, "1",hors);
         generaridv();
         contartabla(datos1);
     }
@@ -55,14 +60,15 @@ public class VentaRealizada {
             Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void venta(Double total, String fecha, String nofactura) {
+    private void venta(Double total, String fecha, String nofactura, Time hors){
         try {
             PreparedStatement stm;
-            stm = cn.prepareStatement("insert into venta(total, fecha, nfactura, login_id) values(?,?,?,?)");
+            stm = cn.prepareStatement("insert into venta(total, fecha, nfactura, login_id, hora) values(?,?,?,?,?)");
             stm.setDouble(1, total);
             stm.setDate(2, Date.valueOf(fecha));
             stm.setString(3, nofactura);
             stm.setInt(4, id);
+            stm.setTime(5, hors);
             stm.executeUpdate();
             stm.close();
         } catch (SQLException ex) {
@@ -101,7 +107,6 @@ public class VentaRealizada {
                     i--;
                 }
             }
-            System.out.println(total + " " + producto);
             restarbd(producto, total);
             total = 1;
         }
@@ -119,19 +124,19 @@ public class VentaRealizada {
         limpiartabla(mostar);
         try {
             Statement st = cn.createStatement();
-            ResultSet r = st.executeQuery("select v.nombre,vt.id, vt.fecha, vt.total "
+            ResultSet r = st.executeQuery("select v.nombre,vt.id, vt.fecha, vt.total, vt.hora "
                     + "from vendedor v "
                     + "inner join login l "
                     + "on v.id = l.vendedor_id  "
                     + "inner join venta vt "
                     + "on vt.login_id = l.id "
                     + " where l.id = " + idvendedor + ""
-                    + " order by vt.id desc ");
-            while (r.next()) {
-                Object[] producto = new Object[]{r.getInt("vt.id"), r.getDouble("vt.total"), r.getDate("vt.fecha"), 0};
-                model.addRow(producto);
-                nomvendedor.setText(r.getString("v.nombre"));
-            }
+                   + " order by vt.id desc ");
+                while(r.next()){
+                        Object[] producto = new Object[]{r.getInt("vt.id"),r.getDouble("vt.total"),r.getDate("vt.fecha"),r.getTime("vt.hora")};
+                        model.addRow(producto);
+                        nomvendedor.setText(r.getString("v.nombre"));
+                }
         } catch (SQLException ex) {
             Logger.getLogger(VentaRealizada.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -149,15 +154,37 @@ public class VentaRealizada {
                     + "inner join producto p "
                     + "on des.producto_id = p.id "
                     + "where vt.id = " + idnumeroventa);
-            while (r.next()) {
-                precio = r.getInt("des.cantidad") * r.getDouble("p.precio");
-                Object[] producto = new Object[]{r.getInt("des.cantidad"), r.getString("p.nombre"), precio};
-                model.addRow(producto);
-                total = r.getDouble("vt.total");
-                ttotal.setText(String.valueOf(total));
-            }
+                while(r.next()){
+                        precio = r.getInt("des.cantidad")*r.getDouble("p.precio");
+                        Object[] producto = new Object[]{r.getInt("des.cantidad"),r.getString("p.nombre"),r.getDouble("precio"),precio};
+                        model.addRow(producto);
+                        total = r.getDouble("vt.total");
+                        ttotal.setText(String.valueOf(total));
+                }           
+       
         } catch (SQLException ex) {
             Logger.getLogger(VentaRealizada.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public double verificarexistencia(JTable verificar, String buscar,int cantidad, double total, JLabel mostrar){
+        DefaultTableModel model = (DefaultTableModel)verificar.getModel();
+        int contar=0; 
+            for (int i = 0; i < model.getRowCount(); i++) {
+                if(buscar.equals(model.getValueAt(i, 1))){
+                    contar++;
+                }
+            }   
+            
+            System.out.println(contar +">>>"+cantidad);
+            if(contar > cantidad){
+                JOptionPane.showMessageDialog(null, "NO HAY MAS PRODUCTOS EN EXISTENCIA", "Error", JOptionPane.ERROR_MESSAGE);
+                 total -=(Double) model.getValueAt((model.getRowCount()-1), 2);
+                 System.out.println("t="+""+total);
+                model.removeRow((model.getRowCount()-1));
+                mostrar.setText(String.valueOf(total));
+            }else{
+                mostrar.setText(String.valueOf(total));
+               System.out.println("t2 ="+""+total); }
+            return total;
     }
 }
