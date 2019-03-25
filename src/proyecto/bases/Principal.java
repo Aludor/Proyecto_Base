@@ -1,5 +1,8 @@
 package proyecto.bases;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
@@ -14,7 +17,6 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("COMPRAS");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -40,7 +42,7 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         Compras c = new Compras(null, true);
         c.setVisible(true);
