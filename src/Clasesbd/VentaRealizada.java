@@ -33,7 +33,7 @@ public class VentaRealizada {
         generaridv();
         contartabla(datos1);
     }
-    private void generaridv() {
+    private void generaridv() { 
         Statement s;
         try {
             s = cn.createStatement();
