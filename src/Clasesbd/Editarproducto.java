@@ -18,6 +18,7 @@ public class Editarproducto {
     Conexion cx = new Conexion();
     Connection cn = cx.conectar();
 public void llenartabla(JTable model){
+    limpiartabla(model);
     DefaultTableModel mode = (DefaultTableModel)model.getModel();
         try {
             Statement st = cn.createStatement();
@@ -30,7 +31,14 @@ public void llenartabla(JTable model){
         } catch (SQLException ex) {
             Logger.getLogger(Editarproducto.class.getName()).log(Level.SEVERE, null, ex);
         }
-}    
+}
+private void limpiartabla(JTable model){
+    DefaultTableModel mod = (DefaultTableModel)model.getModel();
+    int filas = mod.getRowCount();
+    for (int i = filas; i >= 1; i--) {
+            mod.removeRow(mod.getRowCount() - 1);
+        }
+}
 public void agregarnuevoproducto(String codigo, String nombre, double precio){
         try {
             CallableStatement st = cn.prepareCall("{call  agregarproducto (?,?,?)}");

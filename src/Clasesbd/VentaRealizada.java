@@ -1,5 +1,4 @@
 package Clasesbd;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -25,8 +24,8 @@ public class VentaRealizada {
     Connection cn = cx.conectar();
     Calendar cal = new GregorianCalendar();
     int id, idventa;
-    String fecha = cal.get(Calendar.YEAR)+"-"+cal.get(Calendar.MONTH+1)+"-"+cal.get(Calendar.DAY_OF_MONTH);
-    Time hors = Time.valueOf(String.valueOf(cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND)));
+    String fecha = cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DAY_OF_MONTH);
+    Time hors = Time.valueOf(String.valueOf(cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND)));
     public void realizarventa(int idpersona, JTable datos1, double total){
         id = idpersona;
         venta(total, fecha, "1",hors);

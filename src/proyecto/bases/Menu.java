@@ -9,7 +9,9 @@ import javax.swing.JLabel;
 public class Menu extends javax.swing.JFrame {
 
     public Menu() {
-        initComponents();        
+        initComponents();
+        //funcion para hacer grande la pantalla
+        setExtendedState(MAXIMIZED_BOTH);
         imagenes("src"+File.separator+"imagenes"+File.separator+"compra.jpg",jLabel1);
         imagenes("src"+File.separator+"imagenes"+File.separator+"venta.png",jLabel2);
         imagenes("src"+File.separator+"imagenes"+File.separator+"p1.jpg",jLabel3);
