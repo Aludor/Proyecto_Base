@@ -1,0 +1,225 @@
+[33mcommit 74181c19d54da224bb316c74427993e66fe5893f[m[33m ([m[1;36mHEAD -> [m[1;32mdevelo[m[33m)[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Thu Mar 28 09:55:16 2019 -0600
+
+    cagada de jdialog
+
+[33mcommit c6d591b5da239672f34d43b0ddbc62488db5b498[m[33m ([m[1;31morigin/develo[m[33m)[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Tue Mar 26 12:49:44 2019 -0600
+
+    ingresar usuario terminado
+
+[33mcommit edda81125823e97cbfc131270800567239b56388[m
+Merge: 8ced801 7d3ca37
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Tue Mar 26 11:16:08 2019 -0600
+
+    Merge branch 'develo' of https://github.com/Aludor/Proyecto_Base into develo
+    
+    # Conflicts:
+    #       nbproject/private/private.xml
+
+[33mcommit 8ced8016b904a7ffb0aee5771bb5e12de115dacb[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Tue Mar 26 11:08:07 2019 -0600
+
+    no message
+
+[33mcommit 7d3ca37bc265b207a522624b4d14dfa313488411[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Tue Mar 26 11:07:13 2019 -0600
+
+    commit 3
+
+[33mcommit 20de5979258fc849a68f3f033b3bcd361e7ccebe[m
+Merge: 2bdcde5 03644e4
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Tue Mar 26 08:51:33 2019 -0600
+
+    Merge branch 'develo' of https://github.com/Aludor/Proyecto_Base into develo
+    
+    # Conflicts:
+    #       nbproject/private/private.xml
+
+[33mcommit 2bdcde528d1f0295cbd1c7e98ea634dc3b5cdfcc[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Tue Mar 26 08:51:01 2019 -0600
+
+    arreglos
+
+[33mcommit 03644e4412ba4aab22f5f4872537866f0d324581[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Mon Mar 25 22:18:13 2019 -0600
+
+    detalleproducto
+
+[33mcommit f44ba03558c3380896d4137540ab89e3bc6e8c0f[m
+Merge: 9ffedd3 22edd9d
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Mon Mar 25 13:26:22 2019 -0600
+
+    Merge branch 'develo' of https://github.com/Aludor/Proyecto_Base into develo
+    
+    # Conflicts:
+    #       build/built-jar.properties
+    #       build/classes/proyecto/bases/Login.class
+
+[33mcommit 9ffedd3383bbea85df7094db2f6eb6c6e6ad4e59[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Mon Mar 25 13:26:08 2019 -0600
+
+    commit
+
+[33mcommit 3db7360ff49f6448c560126dcb1286ac1551688e[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Mon Mar 25 13:25:00 2019 -0600
+
+    eliminacion de principal
+
+[33mcommit 22edd9de646e9608586dd468a72918d5d27a3861[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Mon Mar 25 13:23:13 2019 -0600
+
+    cagadademanuel
+
+[33mcommit e358eaed08215854eb073dedea308c1f0d84d02a[m
+Merge: 847d843 8149336
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Mon Mar 25 11:37:45 2019 -0600
+
+    Merge branch 'develo' of https://github.com/Aludor/Proyecto_Base into develo
+    
+    # Conflicts:
+    #       build/classes/proyecto/bases/Principal$1.class
+    #       build/classes/proyecto/bases/Principal.class
+    #       build/classes/proyecto/bases/Principal.form
+    #       nbproject/private/private.xml
+    #       src/proyecto/bases/Principal.form
+    #       src/proyecto/bases/Principal.java
+
+[33mcommit 847d843042df56f5e5b4eed4b6eb667378de5904[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Mon Mar 25 11:37:24 2019 -0600
+
+    compras terminado
+
+[33mcommit 8149336b98806f4d55b97d7dc0723082834ad36a[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Mon Mar 25 11:34:52 2019 -0600
+
+    Menuadmin
+
+[33mcommit 3c5d46af1720d8346cd8b20e98c637dcd8e998c8[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Fri Mar 22 12:18:23 2019 -0600
+
+    ventas al 95% terminado
+
+[33mcommit 6faff4267a99eff1d509655baffbda3fec3cc753[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Thu Mar 21 22:44:59 2019 -0600
+
+    actualizado
+
+[33mcommit c7ecd7feb62da3152356831f70a0baa34c8d92b3[m
+Merge: fce0c05 7797808
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Thu Mar 21 22:08:49 2019 -0600
+
+    Merge branch 'develo' of https://github.com/Aludor/Proyecto_Base into develo
+    
+    # Conflicts:
+    #       build/classes/proyecto/bases/Conexion.class
+    #       build/classes/proyecto/bases/Login.class
+    #       build/classes/proyecto/bases/Principal.class
+    #       nbproject/private/private.properties
+    #       nbproject/private/private.xml
+    #       src/Clasesbd/VentaRealizada.java
+    #       src/proyecto/bases/Ventas.java
+
+[33mcommit fce0c056c6339a287700fedf6adbe706ba810fee[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Thu Mar 21 22:06:20 2019 -0600
+
+    actualizar venta
+
+[33mcommit 77978084a24787e67e7aa76ec60e56f071030a68[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Thu Mar 21 21:38:11 2019 -0600
+
+    Eliminacion de sout y compras terminado
+
+[33mcommit 25567b4e0a16ab864778ced25a94cd54dac07dbb[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Thu Mar 21 08:57:24 2019 -0600
+
+    venta3/4 a la mitad
+
+[33mcommit 9cd0e175de4a0600acb376cb98595bd20139e4d9[m
+Author: Fercho21 <barrose120@gmail.com>
+Date:   Thu Mar 21 08:42:02 2019 -0600
+
+    venta3/4
+
+[33mcommit 49864fade7a6ad6486a9a35a81fdfd5334681d4f[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Wed Mar 20 17:38:21 2019 -0600
+
+    Contar total de jtable
+
+[33mcommit c071cc981f2cbce599730a04bfcc4f0be0923310[m
+Merge: bc2995b af2bbec
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Wed Mar 20 16:56:13 2019 -0600
+
+    Merge branch 'develo' of https://github.com/Aludor/Proyecto_Base into develo
+    
+    # Conflicts:
+    #       build/classes/proyecto/bases/Conexion.class
+    #       build/classes/proyecto/bases/Login.class
+    #       build/classes/proyecto/bases/Principal$1.class
+    #       build/classes/proyecto/bases/Principal.class
+    #       nbproject/private/private.xml
+
+[33mcommit bc2995bd71d908b3ce18c9796a02979289a3686c[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Wed Mar 20 16:54:08 2019 -0600
+
+    Agregado Compras
+
+[33mcommit af2bbec86a3acbbed33c17ba65a21c130fb523ab[m
+Author: fenrique21 <fenrique.21@hotmail.com>
+Date:   Wed Mar 20 14:52:10 2019 -0600
+
+    ventas/2
+
+[33mcommit 3c71969761abf47ded9a98fc2711180a08324301[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Sun Mar 17 20:14:09 2019 -0600
+
+    Correcion en ventas
+
+[33mcommit 6a0a9a8983511c4c1b401a2fddaed383cd19a840[m
+Author: fenrique21 <fenrique.21@hotmail.com>
+Date:   Sun Mar 17 19:53:09 2019 -0600
+
+    solo venta cargado
+
+[33mcommit c4ba00d531c613721ff59d2b8baff481a0884270[m
+Author: fenrique21 <fenrique.21@hotmail.com>
+Date:   Sun Mar 17 19:15:45 2019 -0600
+
+    login cargado
+
+[33mcommit 256dfe5534a5da08053a2af9cd60f9e756e95ad0[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Fri Mar 15 22:32:06 2019 -0600
+
+    .gitignore añadido
+
+[33mcommit 8da55643d9fda8613cde6496c4d0ebddf8f7d5ee[m
+Author: Aludor <manuelvillagran@hotmail.com>
+Date:   Fri Mar 15 22:23:30 2019 -0600
+
+    Inicio Proyecto

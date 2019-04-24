@@ -80,11 +80,7 @@ public class VentaRealizada {
             ResultSet r = s.executeQuery("select * from producto");
             while (r.next()) {
                 if (r.getString("nombre").equals(nombre)) {
-                    PreparedStatement pps = s.getConnection().prepareStatement("update producto set cantidad ='" + (r.getInt("cantidad") - cantidad)
-                            + "'where id = '" + r.getInt("id") + "'");
-                    pps.executeUpdate();
                     descripcionv(r.getInt("id"), cantidad, r.getDouble("precio"));
-                    System.out.println("dato = " + r.getInt("id"));
                     break;
                 }
             }
