@@ -89,7 +89,7 @@ public class Ventas extends javax.swing.JDialog {
 
             },
             new String [] {
-                "CANTIDAD", "DESCRIPCION", "PRECIO/UNIDAD"
+                "CODIGO", "DESCRIPCION", "PRECIO/UNIDAD"
             }
         ));
         jTable1.setToolTipText("");
@@ -329,7 +329,7 @@ public class Ventas extends javax.swing.JDialog {
             if (evt.getKeyCode() == 10) {
                 while (r.next()) {
                     if (r.getString("codigo").equals(jTextField1.getText())) {
-                        Object[] producto = new Object[]{1, r.getString("nombre"), r.getDouble("precio")};
+                        Object[] producto = new Object[]{r.getString("codigo"), r.getString("nombre"), r.getDouble("precio")};
                         total += r.getDouble("precio");
                         model.addRow(producto);
                         total = Vr.verificarexistencia(jTable1, r.getString("nombre"),r.getInt("cantidad"),total, jLabel2);
