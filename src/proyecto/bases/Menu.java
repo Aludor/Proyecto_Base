@@ -73,6 +73,11 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel6);
 
         getContentPane().add(jPanel1);
@@ -102,6 +107,11 @@ public class Menu extends javax.swing.JFrame {
         Nuevo_Usuario n = new Nuevo_Usuario(this, true);
         n.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        Estadisticas e = new Estadisticas(this, true);
+        e.setVisible(true);
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     public void datos(int id, String nomb, int lugr){
         idp = id;

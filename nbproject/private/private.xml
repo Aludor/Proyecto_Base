@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/MAX48/Documents/NetBeansProjects/Proyecto%20Bases/src/proyecto/bases/Compras.java</file>
+            <file>file:/C:/Users/MAX48/Documents/NetBeansProjects/Proyecto%20Bases/src/proyecto/bases/Nuevo_Usuario.java</file>
+            <file>file:/C:/Users/MAX48/Documents/NetBeansProjects/Proyecto%20Bases/src/proyecto/bases/Login.java</file>
+=======
             <file>file:/C:/Users/hp/Documents/Proyecto_Base/src/proyecto/bases/Nuevo_Usuario.java</file>
             <file>file:/C:/Users/hp/Documents/Proyecto_Base/src/proyecto/bases/Compras.java</file>
             <file>file:/C:/Users/hp/Documents/Proyecto_Base/src/proyecto/bases/Login.java</file>
             <file>file:/C:/Users/hp/Documents/Proyecto_Base/src/proyecto/bases/Producto.java</file>
             <file>file:/C:/Users/hp/Documents/Proyecto_Base/src/Clasesbd/VentaRealizada.java</file>
             <file>file:/C:/Users/hp/Documents/Proyecto_Base/src/proyecto/bases/Ventas.java</file>
+>>>>>>> 64c1d4f63ac5680351251e0888c588a7c13eb60e
         </group>
     </open-files>
 </project-private>
