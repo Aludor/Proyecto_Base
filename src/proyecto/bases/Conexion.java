@@ -10,12 +10,7 @@ public class Conexion {
     public Connection conectar() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
-<<<<<<< HEAD
-            cx = (Connection) DriverManager.getConnection("jdbc:mariadb://localhost:3306/surtifiestas", "root", "bases1");
-=======
-            cx = (Connection) DriverManager.getConnection("jdbc:mariadb://localhost:3306/surtifiestas", "root", "Fercho.21");
-            System.out.println("Conexion exitosa");
->>>>>>> 64c1d4f63ac5680351251e0888c588a7c13eb60e
+            cx = (Connection) DriverManager.getConnection("jdbc:mariadb://192.168.1.171/surtifiestas", "root", "Fercho.21");
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo conectar " + ex);
         }
