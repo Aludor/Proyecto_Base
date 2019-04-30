@@ -342,7 +342,11 @@ public class Nuevo_Usuario extends javax.swing.JDialog {
                    jRadioButton1.setSelected(false);
                    jRadioButton2.setSelected(false);
                    usuario();
+<<<<<<< HEAD
 //                    c.executeUpdate("insert into login(usuario,contraseña,admin,vendedor_id) values('"+jTextField3.getText()+"',sha1('"+jPasswordField1.getText()+"'),"+jButton1.isSelected()+","+r.getInt("id")+")");
+=======
+//                   c.executeUpdate("insert into login(usuario,contraseña,admin,vendedor_id) values('"+jTextField3.getText()+"',sha1('"+jPasswordField1.getText()+"'),"+jButton1.isSelected()+","+r.getInt("id")+")");
+>>>>>>> dde6127859b1952b1c2e465d1ff51f0b7d2511ac
                 }
             }
         } catch (SQLException ex) {
