@@ -106,7 +106,7 @@ public class VentaRealizada {
             total = 1;
         }
     }
-    private void limpiartabla(JTable datos) {
+    public void limpiartabla(JTable datos) {
         DefaultTableModel dtm = (DefaultTableModel) datos.getModel();
         int a = 0, filas = dtm.getRowCount();
         for (int i = filas; i >= 1; i--) {
@@ -142,7 +142,7 @@ public class VentaRealizada {
             limpiartabla(datosmos);
             double precio = 0, total = 0;
             Statement st = cn.createStatement();
-            ResultSet r = st.executeQuery("select p.nombre, p.precio, des.cantidad, vt.total "
+            ResultSet r = st.executeQuery("select p.nombre, des.precio, des.cantidad, vt.total "
                     + "from venta vt "
                     + "inner join descripcionv des "
                     + "on vt.id = des.venta_id  "
@@ -150,12 +150,13 @@ public class VentaRealizada {
                     + "on des.producto_id = p.id "
                     + "where vt.id = " + idnumeroventa);
                 while(r.next()){
-                        precio = r.getInt("des.cantidad")*r.getDouble("p.precio");
-                        Object[] producto = new Object[]{r.getInt("des.cantidad"),r.getString("p.nombre"),r.getDouble("precio"),precio};
+                        precio = r.getInt("des.cantidad")*r.getDouble("des.precio");
+                        Object[] producto = new Object[]{r.getInt("des.cantidad"),r.getString("p.nombre"),r.getDouble("des.precio"),precio};
                         model.addRow(producto);
                         total = r.getDouble("vt.total");
-                        ttotal.setText(String.valueOf(total));
-                }           
+                }       
+                ttotal.setText(String.valueOf(total));
+                System.out.println(total);
        
         } catch (SQLException ex) {
             Logger.getLogger(VentaRealizada.class.getName()).log(Level.SEVERE, null, ex);

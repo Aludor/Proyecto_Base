@@ -218,7 +218,7 @@ public class Nuevo_Usuario extends javax.swing.JDialog {
             }
             else{                
                 if(r.next()){
-                    c.executeUpdate("insert into login(usuario,contraseña,admin,vendedor_id) values('"+jTextField3.getText()+"',sha1('"+jPasswordField1.getText()+"'),"+jButton1.isSelected()+","+r.getInt("id")+")");
+//                    c.executeUpdate("insert into login(usuario,contraseña,admin,vendedor_id) values('"+jTextField3.getText()+"',sha1('"+jPasswordField1.getText()+"'),"+jButton1.isSelected()+","+r.getInt("id")+")");
                 }
             }
         } catch (SQLException ex) {
