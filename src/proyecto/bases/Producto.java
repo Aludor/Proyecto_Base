@@ -74,7 +74,6 @@ public class Producto extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(325, 325));
-        setPreferredSize(new java.awt.Dimension(771, 590));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jTabbedPane1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -84,16 +83,16 @@ public class Producto extends javax.swing.JDialog {
             }
         });
 
-        java.awt.GridBagLayout jPanel1Layout1 = new java.awt.GridBagLayout();
-        jPanel1Layout1.columnWidths = new int[] {0, 21, 0, 21, 0, 21, 0, 21, 0, 21, 0};
-        jPanel1Layout1.rowHeights = new int[] {0, 25, 0, 25, 0, 25, 0, 25, 0, 25, 0, 25, 0};
-        jPanel1.setLayout(jPanel1Layout1);
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("CODIGO");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(103, 229, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -102,30 +101,41 @@ public class Producto extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 216;
         gridBagConstraints.ipady = 28;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(89, 42, 0, 247);
         jPanel1.add(jTextField1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("NOMBRE");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(64, 226, 0, 0);
         jPanel1.add(jLabel2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 216;
         gridBagConstraints.ipady = 28;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(50, 42, 0, 247);
         jPanel1.add(jTextField2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("PRECIO");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(64, 231, 0, 0);
         jPanel1.add(jLabel3, gridBagConstraints);
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -139,10 +149,13 @@ public class Producto extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 216;
         gridBagConstraints.ipady = 28;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(50, 42, 0, 247);
         jPanel1.add(jTextField3, gridBagConstraints);
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -153,9 +166,11 @@ public class Producto extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.ipady = 28;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(50, 42, 89, 247);
         jPanel1.add(jButton1, gridBagConstraints);
 
         jTabbedPane1.addTab("NUEVO PRODUCTO", jPanel1);
@@ -296,6 +311,11 @@ public class Producto extends javax.swing.JDialog {
 
         jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
+        jTextField9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField9MouseClicked(evt);
+            }
+        });
         jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField9KeyPressed(evt);
@@ -405,10 +425,12 @@ public class Producto extends javax.swing.JDialog {
 
     private void jCheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox2MouseClicked
         // TODO add your handling code here:
+        jCheckBox2.setSelected(true);
         if(jCheckBox2.isSelected()){
             jCheckBox1.setSelected(false);
             jTextField9.setEditable(true);
             jTextField9.setText(null);
+            jTextField9.requestFocus();
         }else{
             jTextField9.setEditable(false);
             jTextField9.setText(null);
@@ -427,10 +449,12 @@ public class Producto extends javax.swing.JDialog {
 
     private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
         // TODO add your handling code here:
+        jCheckBox1.setSelected(true);
         if(jCheckBox1.isSelected()){
             jCheckBox2.setSelected(false);
             jTextField9.setEditable(true);
             jTextField9.setText(null);
+            jTextField9.requestFocus();
         }else{
             jTextField9.setEditable(false);
             jTextField9.setText(null);
@@ -445,19 +469,14 @@ public class Producto extends javax.swing.JDialog {
         // TODO add your handling code here:
         if(jCheckBox2.isSelected()){
             try {
-                vtr.limpiartabla(jTable1);
                 DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
                 TextAutoCompleter a;
                 a = new TextAutoCompleter(jTextField9);
-                System.out.println(jTextField9.getText());
                 Statement s = cx.conectar().createStatement();
                 ResultSet r = s.executeQuery("select * from producto ");
                 while(r.next()){
                     a.addItem(r.getString("nombre"));
-                    Object[] producto = new Object[]{r.getString("codigo"),r.getString("nombre"),r.getInt("cantidad")};
-                    model.addRow(producto);
                 }
-                System.out.println("PRod"+  a.getItemSelected());
             } catch (SQLException ex) {
                 Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -466,7 +485,6 @@ public class Producto extends javax.swing.JDialog {
 
     private void jTextField9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyPressed
         // TODO add your handling code herefasfsafasfsdfasfasfsafsfadafasf:
-
         if(evt.getKeyCode() == 10 && jCheckBox1.isSelected()){
             try {
                 vtr.limpiartabla(jTable1);
@@ -474,6 +492,23 @@ public class Producto extends javax.swing.JDialog {
                 Statement st = cn.createStatement();
                 ResultSet r = st.executeQuery("select * from producto "
                     + "where codigo = '" + jTextField9.getText() + "'");
+                if(r.next()){
+                    Object[] producto = new Object[]{r.getString("codigo"),r.getString("nombre"),r.getInt("cantidad")};
+                    model.addRow(producto);
+                    jTextField9.setText(null);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if(evt.getKeyCode() == 10 && jCheckBox2.isSelected()){
+            try {
+                vtr.limpiartabla(jTable1);
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                Statement st = cn.createStatement();
+                ResultSet r = st.executeQuery("select * from producto "
+                    + "where nombre = '" + jTextField9.getText() + "'");
+                System.out.println(jTextField9.getText()+"122");
                 if(r.next()){
                     Object[] producto = new Object[]{r.getString("codigo"),r.getString("nombre"),r.getInt("cantidad")};
                     model.addRow(producto);
@@ -603,6 +638,13 @@ public class Producto extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField9MouseClicked
+        // TODO add your handling code here:
+        if(jCheckBox2.isSelected()){
+            System.out.println(jTextField9.getText()+"adf");
+        }
+    }//GEN-LAST:event_jTextField9MouseClicked
 
     
     public static void main(String args[]) {
