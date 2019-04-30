@@ -333,6 +333,7 @@ public class Nuevo_Usuario extends javax.swing.JDialog {
             }
             else{                
                 if(r.next()){
+<<<<<<< HEAD
                    c.executeUpdate("insert into login(usuario,contraseña,admin,vendedor_id) values('"+jTextField3.getText()+"',sha1('"+jPasswordField1.getText()+"'),"+jRadioButton1.isSelected()+","+r.getInt("id")+")");
                    jTabbedPane1.setEnabledAt(0, true);
                    jTabbedPane1.setEnabledAt(2, true);
@@ -342,6 +343,9 @@ public class Nuevo_Usuario extends javax.swing.JDialog {
                    jRadioButton1.setSelected(false);
                    jRadioButton2.setSelected(false);
                    usuario();
+=======
+//                    c.executeUpdate("insert into login(usuario,contraseña,admin,vendedor_id) values('"+jTextField3.getText()+"',sha1('"+jPasswordField1.getText()+"'),"+jButton1.isSelected()+","+r.getInt("id")+")");
+>>>>>>> 64c1d4f63ac5680351251e0888c588a7c13eb60e
                 }
             }
         } catch (SQLException ex) {

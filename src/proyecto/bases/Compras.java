@@ -190,6 +190,11 @@ public final class Compras extends javax.swing.JDialog {
         });
         jPanel6.add(jTextField2);
 
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField3KeyPressed(evt);
@@ -492,6 +497,10 @@ public final class Compras extends javax.swing.JDialog {
             Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
     public void llenarcompra() {
         try {
             Statement c = n.conectar().createStatement();
