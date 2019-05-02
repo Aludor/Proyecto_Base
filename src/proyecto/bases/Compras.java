@@ -105,12 +105,17 @@ public final class Compras extends javax.swing.JDialog {
         jPopupMenu1.add(jMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 204, 255));
         setMinimumSize(new java.awt.Dimension(700, 200));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
+        jTabbedPane1.setBackground(new java.awt.Color(153, 204, 255));
+        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
+        jTabbedPane1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(400, 500));
+        jTabbedPane1.setOpaque(true);
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(1300, 680));
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -118,18 +123,21 @@ public final class Compras extends javax.swing.JDialog {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 102));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setLayout(new java.awt.CardLayout());
+
+        jScrollPane1.setBackground(javax.swing.UIManager.getDefaults().getColor("nb.bugtracking.modified.color"));
 
         jTable1 = new javax.swing.JTable(){
             public boolean isCellEditable(int row, int column){
                 return false;
             }
         };
-        jTable1.setBackground(new java.awt.Color(255, 153, 102));
-        jTable1.setForeground(new java.awt.Color(255, 153, 102));
+        jTable1.setBackground(new java.awt.Color(153, 204, 255));
+        jTable1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -139,12 +147,15 @@ public final class Compras extends javax.swing.JDialog {
             }
         ));
         jTable1.setComponentPopupMenu(jPopupMenu1);
+        jTable1.setFillsViewportHeight(true);
         jScrollPane1.setViewportView(jTable1);
 
         jPanel4.add(jScrollPane1, "card2");
 
         jPanel1.add(jPanel4, java.awt.BorderLayout.CENTER);
 
+        jPanel5.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.BorderLayout());
 
         jLabel14.setText("               ");
@@ -159,28 +170,36 @@ public final class Compras extends javax.swing.JDialog {
         jLabel17.setText("        ");
         jPanel5.add(jLabel17, java.awt.BorderLayout.PAGE_END);
 
+        jPanel6.setBackground(javax.swing.UIManager.getDefaults().getColor("nb.bugtracking.modified.color"));
+        jPanel6.setOpaque(false);
         jPanel6.setLayout(new java.awt.GridLayout(2, 0, 5, 0));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CODIGO");
         jPanel6.add(jLabel1);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CANTIDAD");
         jPanel6.add(jLabel2);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("PRECIO");
         jPanel6.add(jLabel3);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("No. FACTURA");
         jPanel6.add(jLabel4);
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("PROVEEDOR");
         jPanel6.add(jLabel5);
 
+        jTextField1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);
@@ -188,6 +207,7 @@ public final class Compras extends javax.swing.JDialog {
         });
         jPanel6.add(jTextField1);
 
+        jTextField2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
@@ -195,6 +215,7 @@ public final class Compras extends javax.swing.JDialog {
         });
         jPanel6.add(jTextField2);
 
+        jTextField3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -206,25 +227,33 @@ public final class Compras extends javax.swing.JDialog {
             }
         });
         jPanel6.add(jTextField3);
+
+        jTextField4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jPanel6.add(jTextField4);
 
+        jComboBox1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jPanel6.add(jComboBox1);
 
         jPanel5.add(jPanel6, java.awt.BorderLayout.CENTER);
 
         jPanel1.add(jPanel5, java.awt.BorderLayout.PAGE_START);
 
+        jPanel7.setOpaque(false);
         jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 40, 5));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("TOTAL");
         jPanel7.add(jLabel6);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("0.0");
         jPanel7.add(jLabel7);
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(0, 153, 255));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CONFIRMAR");
         jButton1.setMinimumSize(new java.awt.Dimension(100, 30));
         jButton1.setPreferredSize(new java.awt.Dimension(120, 30));
@@ -235,7 +264,9 @@ public final class Compras extends javax.swing.JDialog {
         });
         jPanel7.add(jButton1);
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(0, 153, 255));
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("AGREGAR PROVEEDOR");
         jButton2.setMinimumSize(new java.awt.Dimension(152, 30));
         jButton2.setPreferredSize(new java.awt.Dimension(170, 30));
@@ -252,11 +283,14 @@ public final class Compras extends javax.swing.JDialog {
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
+        jScrollPane2.setBackground(new java.awt.Color(153, 204, 255));
+
         jTable2 = new javax.swing.JTable(){
             public boolean isCellEditable(int row, int column){
                 return false;
             }
         };
+        jTable2.setBackground(new java.awt.Color(153, 204, 255));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -265,6 +299,7 @@ public final class Compras extends javax.swing.JDialog {
                 "NUMERO VENTA", "TOTAL", "FECHA", "NUMERO FACTURA"
             }
         ));
+        jTable2.setFillsViewportHeight(true);
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable2MouseClicked(evt);
@@ -276,10 +311,16 @@ public final class Compras extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("DETALLE COMPRA", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(153, 204, 255));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
+        jPanel8.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel8.setOpaque(false);
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
 
+        jScrollPane3.setBackground(new java.awt.Color(153, 204, 255));
+
+        jTable3.setBackground(new java.awt.Color(153, 204, 255));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -288,12 +329,14 @@ public final class Compras extends javax.swing.JDialog {
                 "CANTIDAD", "DESCRIPCION", "PRECIO"
             }
         ));
+        jTable3.setFillsViewportHeight(true);
         jScrollPane3.setViewportView(jTable3);
 
         jPanel8.add(jScrollPane3);
 
         jPanel3.add(jPanel8, java.awt.BorderLayout.CENTER);
 
+        jPanel9.setBackground(new java.awt.Color(153, 204, 255));
         jPanel9.setLayout(new java.awt.BorderLayout());
 
         jLabel18.setText("    ");
@@ -308,34 +351,41 @@ public final class Compras extends javax.swing.JDialog {
         jLabel21.setText("               ");
         jPanel9.add(jLabel21, java.awt.BorderLayout.LINE_END);
 
+        jPanel10.setOpaque(false);
         jPanel10.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("PROVEEDOR");
         jPanel10.add(jLabel8);
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("No. FACTURA");
         jPanel10.add(jLabel10);
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("TOTAL");
         jPanel10.add(jLabel12);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("____________________");
         jPanel10.add(jLabel9);
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("____________________");
         jPanel10.add(jLabel11);
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("____________________");
         jPanel10.add(jLabel13);

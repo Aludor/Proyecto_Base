@@ -62,12 +62,13 @@ public class VentaRealizada {
     private void venta(Double total, String fecha, String nofactura, Time hors){
         try {
             PreparedStatement stm;
-            stm = cn.prepareStatement("insert into venta(total, fecha, nfactura, login_id, hora) values(?,?,?,?,?)");
+            stm = cn.prepareStatement("insert into venta(total, fecha, nfactura, login_id, hora, anulada) values(?,?,?,?,?,?)");
             stm.setDouble(1, total);
             stm.setDate(2, Date.valueOf(fecha));
             stm.setString(3, nofactura);
             stm.setInt(4, id);
             stm.setTime(5, hors);
+            stm.setBoolean(6, false);
             stm.executeUpdate();
             stm.close();
         } catch (SQLException ex) {
@@ -113,13 +114,13 @@ public class VentaRealizada {
             dtm.removeRow(dtm.getRowCount() - 1);
         }
     }
-    public void mostrardatos(JTable mostar, JLabel nomvendedor, int idvendedor) {
+    public void mostrardatos(JTable mostar, JLabel nomvendedor, int idvendedor, boolean anulada) {
         DefaultTableModel model = (DefaultTableModel) mostar.getModel();
         int filas = model.getRowCount();
         limpiartabla(mostar);
         try {
             Statement st = cn.createStatement();
-            ResultSet r = st.executeQuery("select v.nombre,vt.id, vt.fecha, vt.total, vt.hora "
+            ResultSet r = st.executeQuery("select v.nombre,vt.id, vt.fecha, vt.anulada, vt.total, vt.hora "
                     + "from vendedor v "
                     + "inner join login l "
                     + "on v.id = l.vendedor_id  "
@@ -128,9 +129,18 @@ public class VentaRealizada {
                     + " where l.id = " + idvendedor + ""
                    + " order by vt.id desc ");
                 while(r.next()){
-                        Object[] producto = new Object[]{r.getInt("vt.id"),r.getDouble("vt.total"),r.getDate("vt.fecha"),r.getTime("vt.hora")};
+                    if(anulada == r.getBoolean("vt.anulada")){
+                        String anul = "";
+                        if(r.getBoolean("vt.anulada")){
+                            anul = "SI";
+                        }else{
+                            anul = "NO";
+                        }
+                        Object[] producto = new Object[]{r.getInt("vt.id"),anul,r.getDouble("vt.total"),r.getDate("vt.fecha"),r.getTime("vt.hora")};
                         model.addRow(producto);
                         nomvendedor.setText(r.getString("v.nombre"));
+                    }
+                        
                 }
         } catch (SQLException ex) {
             Logger.getLogger(VentaRealizada.class.getName()).log(Level.SEVERE, null, ex);

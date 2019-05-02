@@ -83,8 +83,8 @@ public class Producto extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        jTabbedPane1.setBackground(new java.awt.Color(51, 153, 255));
-        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setBackground(new java.awt.Color(153, 204, 255));
+        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
         jTabbedPane1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jTabbedPane1.setOpaque(true);
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -93,11 +93,11 @@ public class Producto extends javax.swing.JDialog {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CODIGO");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -107,6 +107,7 @@ public class Producto extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(103, 229, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
+        jTextField1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);
@@ -123,7 +124,7 @@ public class Producto extends javax.swing.JDialog {
         jPanel1.add(jTextField1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOMBRE");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -132,6 +133,8 @@ public class Producto extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(64, 226, 0, 0);
         jPanel1.add(jLabel2, gridBagConstraints);
+
+        jTextField2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -143,7 +146,7 @@ public class Producto extends javax.swing.JDialog {
         jPanel1.add(jTextField2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("PRECIO");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -152,6 +155,7 @@ public class Producto extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(64, 231, 0, 0);
         jPanel1.add(jLabel3, gridBagConstraints);
 
+        jTextField3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -172,9 +176,9 @@ public class Producto extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(50, 42, 0, 247);
         jPanel1.add(jTextField3, gridBagConstraints);
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
+        jButton1.setBackground(new java.awt.Color(0, 153, 255));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("AGREAR PRODUCTO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,14 +195,14 @@ public class Producto extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("NUEVO PRODUCTO", jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
         jPanel2Layout.columnWidths = new int[] {0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0};
         jPanel2Layout.rowHeights = new int[] {0, 24, 0, 24, 0, 24, 0, 24, 0, 24, 0, 24, 0};
         jPanel2.setLayout(jPanel2Layout);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("BUSCAR CODIGO");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -262,7 +266,7 @@ public class Producto extends javax.swing.JDialog {
         jPanel2.add(jTextField8, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CODIGO");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -271,7 +275,7 @@ public class Producto extends javax.swing.JDialog {
         jPanel2.add(jLabel5, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("NOMBRE");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -280,7 +284,7 @@ public class Producto extends javax.swing.JDialog {
         jPanel2.add(jLabel6, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("PRECIO ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -289,7 +293,7 @@ public class Producto extends javax.swing.JDialog {
         jPanel2.add(jLabel7, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("NUEVO PRECIO");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -297,8 +301,9 @@ public class Producto extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         jPanel2.add(jLabel8, gridBagConstraints);
 
-        jButton2.setBackground(new java.awt.Color(0, 51, 255));
+        jButton2.setBackground(new java.awt.Color(0, 153, 255));
         jButton2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("CAMBIAR PRECIO");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,7 +320,7 @@ public class Producto extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("EDITAR PRECIO", jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(153, 204, 255));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
         jScrollPane1.setBackground(new java.awt.Color(51, 153, 255));
@@ -326,7 +331,7 @@ public class Producto extends javax.swing.JDialog {
                 return false;
             }
         };
-        jTable1.setBackground(new java.awt.Color(51, 153, 255));
+        jTable1.setBackground(new java.awt.Color(153, 204, 255));
         jTable1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTable1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
@@ -360,7 +365,7 @@ public class Producto extends javax.swing.JDialog {
         jPanel4.add(jLabel10);
 
         jCheckBox1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBox1.setText("CODIGO");
         jCheckBox1.setOpaque(false);
         jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -392,7 +397,7 @@ public class Producto extends javax.swing.JDialog {
         jPanel4.add(jLabel11);
 
         jCheckBox2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox2.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBox2.setText("NOMBRE");
         jCheckBox2.setOpaque(false);
         jCheckBox2.addMouseListener(new java.awt.event.MouseAdapter() {

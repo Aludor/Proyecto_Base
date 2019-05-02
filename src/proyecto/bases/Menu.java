@@ -44,7 +44,7 @@ public class Menu extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(967, 748));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new java.awt.GridLayout(6, 0, 10, 10));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N

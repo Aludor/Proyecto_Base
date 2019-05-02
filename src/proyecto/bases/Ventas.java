@@ -33,6 +33,8 @@ public class Ventas extends javax.swing.JDialog {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jPopupMenu2 = new javax.swing.JPopupMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         Menu = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -53,6 +55,7 @@ public class Ventas extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -74,21 +77,33 @@ public class Ventas extends javax.swing.JDialog {
         });
         jPopupMenu1.add(jMenuItem1);
 
+        jMenuItem2.setForeground(new java.awt.Color(255, 51, 51));
+        jMenuItem2.setText("ANULAR");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jPopupMenu2.add(jMenuItem2);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 153, 255));
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        Menu.setBackground(new java.awt.Color(51, 153, 255));
+        Menu.setBackground(new java.awt.Color(153, 204, 255));
+        Menu.setForeground(new java.awt.Color(0, 0, 0));
         Menu.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        Menu.setOpaque(true);
         Menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MenuMouseClicked(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(153, 204, 255));
         java.awt.GridBagLayout jPanel3Layout = new java.awt.GridBagLayout();
         jPanel3Layout.columnWidths = new int[] {0, 17, 0, 17, 0, 17, 0, 17, 0, 17, 0, 17, 0, 17, 0, 17, 0};
         jPanel3Layout.rowHeights = new int[] {0, 18, 0, 18, 0, 18, 0, 18, 0, 18, 0};
@@ -133,7 +148,7 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jTextField2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CAMBIO");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -143,7 +158,7 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
@@ -151,7 +166,7 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jLabel4, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("TOTAL");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -161,7 +176,7 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
@@ -169,16 +184,16 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jLabel2, gridBagConstraints);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("VENDEDOR-----------");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         jPanel3.add(jLabel9, gridBagConstraints);
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
+        jButton1.setBackground(new java.awt.Color(0, 153, 255));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("VENDER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +222,7 @@ public class Ventas extends javax.swing.JDialog {
                 return false;
             }
         };
-        jTable1.setBackground(new java.awt.Color(51, 153, 255));
+        jTable1.setBackground(new java.awt.Color(153, 204, 255));
         jTable1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -235,32 +250,48 @@ public class Ventas extends javax.swing.JDialog {
 
         Menu.addTab("VENTA", jPanel1);
 
-        jPanel4.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel4.setBackground(new java.awt.Color(153, 204, 255));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel10.setOpaque(false);
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("_______________________________");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 1;
         jPanel10.add(jLabel6, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("VENDEDOR");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 189;
         jPanel10.add(jLabel5, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         jPanel10.add(jLabel14, gridBagConstraints);
+
+        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButton1.setText("MOSTRAR FACTURAS ANULADAS");
+        jRadioButton1.setBorder(null);
+        jRadioButton1.setOpaque(false);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 66);
+        jPanel10.add(jRadioButton1, gridBagConstraints);
 
         jPanel4.add(jPanel10);
 
@@ -275,7 +306,7 @@ public class Ventas extends javax.swing.JDialog {
                 return false;
             }
         };
-        jTable2.setBackground(new java.awt.Color(51, 153, 255));
+        jTable2.setBackground(new java.awt.Color(153, 204, 255));
         jTable2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTable2.setForeground(new java.awt.Color(255, 255, 255));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -283,9 +314,10 @@ public class Ventas extends javax.swing.JDialog {
 
             },
             new String [] {
-                "# VENTA", "TOTAL", "FECHA", "HORA"
+                "# VENTA", "ANULADA", "TOTAL", "FECHA", "HORA"
             }
         ));
+        jTable2.setComponentPopupMenu(jPopupMenu2);
         jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTable2.setFillsViewportHeight(true);
         jTable2.setRowHeight(25);
@@ -302,7 +334,7 @@ public class Ventas extends javax.swing.JDialog {
 
         Menu.addTab("DETALLE VENTA", jPanel4);
 
-        jPanel7.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel7.setBackground(new java.awt.Color(153, 204, 255));
         jPanel7.setLayout(new java.awt.BorderLayout());
 
         jPanel9.setOpaque(false);
@@ -317,7 +349,7 @@ public class Ventas extends javax.swing.JDialog {
                 return false;
             }
         };
-        jTable3.setBackground(new java.awt.Color(51, 153, 255));
+        jTable3.setBackground(new java.awt.Color(153, 204, 255));
         jTable3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jTable3.setForeground(new java.awt.Color(255, 255, 255));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -342,13 +374,13 @@ public class Ventas extends javax.swing.JDialog {
         jPanel8.add(jLabel13);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("TOTAL");
         jPanel8.add(jLabel7);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("0");
         jPanel8.add(jLabel8);
@@ -405,7 +437,7 @@ public class Ventas extends javax.swing.JDialog {
             setLocationRelativeTo(null);
         } 
         else if (Menu.getSelectedIndex() == 1) {
-            Vr.mostrardatos(jTable2, jLabel6, id);
+            Vr.mostrardatos(jTable2, jLabel6, id, false);
             setSize(1237, 646);
             setLocationRelativeTo(null);
         } 
@@ -483,6 +515,40 @@ public class Ventas extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButton1.isSelected()){
+            //System.out.println("mostrar facturas anuladas");
+            Vr.mostrardatos(jTable2, jLabel6, id, true);
+        }else{
+            //System.out.println("mostrar facturas no anuladas");
+            Vr.mostrardatos(jTable2, jLabel6, id, false);
+        }
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       //anular facturas
+       DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+       int selec = jTable2.getSelectedRow();
+       System.out.println(selec);
+       if(selec != -1){
+       String anulada = model.getValueAt(selec, 1).toString();
+            if("NO".equals(anulada)){
+               int idvt = (int) model.getValueAt(selec, 0);
+                    try {
+                        Statement s = cn.createStatement();
+                        ResultSet r = s.executeQuery("update venta set anulada = true "
+                       + "where id = " + idvt);
+                        } catch (SQLException ex) {
+                    Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
+                    }    
+            }
+                Vr.mostrardatos(jTable2, jLabel6, id,false);
+          }
+
+       
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -515,6 +581,7 @@ public class Ventas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -525,6 +592,8 @@ public class Ventas extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
