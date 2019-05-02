@@ -3,6 +3,8 @@ package proyecto.bases;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -569,12 +571,14 @@ public final class Compras extends javax.swing.JDialog {
             }
             Calendar f = new GregorianCalendar();
             String fecha = String.valueOf(f.get(Calendar.YEAR)) + "-" + String.valueOf(f.get(Calendar.MONTH) + 1) + "-" + String.valueOf(f.get(Calendar.DAY_OF_MONTH));
-            CallableStatement st = n.cx.prepareCall("{call  ingresarcompra (?,?,?,?)}");
-            st.setString(1, jTextField4.getText());
-            st.setDouble(2, Double.parseDouble(jLabel7.getText()));
-            st.setInt(3, id);
-            st.setInt(4, idlogin);
-            st.execute();
+            PreparedStatement stm;
+            stm = n.cx.prepareStatement("insert into compra(fecha,nfactura, total, proveedor_id, login_id) values(?,?,?,?,?)");
+            stm.setDate(1, Date.valueOf(fecha));
+            stm.setString(2, jTextField4.getText());
+            stm.setDouble(3, Double.parseDouble(jLabel7.getText()));
+            stm.setInt(4, id);
+            stm.setInt(5, idlogin);
+            stm.executeUpdate();
             r.close();
             c.close();
         } catch (SQLException ex) {
@@ -613,27 +617,7 @@ public final class Compras extends javax.swing.JDialog {
                     }
                 }
                 c.executeUpdate("insert into descripcionc(compra_id,producto_id,precio,cantidad) values("+idc+","+idp+","+precio+","+cantidad+")");
-                actualizarinventario(cantidad);
             }
-            r.close();
-            c.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    public void actualizarinventario(int total){
-        try {
-            int existencia = 0;
-            Statement c = n.conectar().createStatement();
-            ResultSet r = c.executeQuery("select * from producto");
-            while(r.next()){
-                if(r.getInt("id") == idp){
-                    existencia = r.getInt("cantidad");
-                    existencia += total;
-                    break;
-                }
-            }
-            c.executeUpdate("update producto set cantidad = " + existencia + " where id = " + idp);
             r.close();
             c.close();
         } catch (SQLException ex) {

@@ -49,7 +49,6 @@ public void agregarnuevoproducto(String codigo, String nombre, double precio){
             st.close();
         } catch (SQLException ex) {
             Logger.getLogger(Editarproducto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                
-}
+        }              
+    }
 }
