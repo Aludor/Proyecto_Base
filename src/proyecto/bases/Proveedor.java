@@ -28,9 +28,10 @@ public class Proveedor extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 153, 255));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("INGRESE DATOS DE PROVEEDOR");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -40,6 +41,7 @@ public class Proveedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(26, 12, 0, 12);
         getContentPane().add(jLabel1, gridBagConstraints);
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("NOMBRE");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -48,6 +50,7 @@ public class Proveedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(19, 34, 0, 0);
         getContentPane().add(jLabel2, gridBagConstraints);
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("TELEFONO");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -57,6 +60,7 @@ public class Proveedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(25, 34, 0, 0);
         getContentPane().add(jLabel3, gridBagConstraints);
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("DIRECCION");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -98,6 +102,7 @@ public class Proveedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
         getContentPane().add(jTextField3, gridBagConstraints);
 
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setText("AGREGAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

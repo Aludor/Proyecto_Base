@@ -2,7 +2,7 @@ package proyecto.bases;
 
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.sql.Date;
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,6 +21,8 @@ public final class Compras extends javax.swing.JDialog {
         initComponents();
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height - 50);
         setLocationRelativeTo(null);
+        jPanel5.setOpaque(false);
+        jPanel6.setOpaque(false);
         proveedor();
     }
     Conexion n = new Conexion();
@@ -30,7 +32,7 @@ public final class Compras extends javax.swing.JDialog {
     public void proveedor() {
         try {
             Statement c = n.conectar().createStatement();
-            ResultSet r = c.executeQuery("select nombre from proveedor");
+            ResultSet r = c.executeQuery("select nombre from proveedor order by id asc");
             while (r.next()) {
                 jComboBox1.addItem(r.getString("nombre"));
             }
@@ -116,6 +118,7 @@ public final class Compras extends javax.swing.JDialog {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 153, 102));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setLayout(new java.awt.CardLayout());
@@ -125,6 +128,8 @@ public final class Compras extends javax.swing.JDialog {
                 return false;
             }
         };
+        jTable1.setBackground(new java.awt.Color(255, 153, 102));
+        jTable1.setForeground(new java.awt.Color(255, 153, 102));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -499,7 +504,7 @@ public final class Compras extends javax.swing.JDialog {
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField3ActionPerformed
     public void llenarcompra() {
         try {
@@ -514,7 +519,12 @@ public final class Compras extends javax.swing.JDialog {
             }
             Calendar f = new GregorianCalendar();
             String fecha = String.valueOf(f.get(Calendar.YEAR)) + "-" + String.valueOf(f.get(Calendar.MONTH) + 1) + "-" + String.valueOf(f.get(Calendar.DAY_OF_MONTH));
-            c.executeUpdate("insert into compra(fecha,nfactura,total,proveedor_id,login_id) values('" + Date.valueOf(fecha) + "','" + jTextField4.getText() + "'," + Double.parseDouble(jLabel7.getText()) + "," + id + "," + idlogin + ")");
+            CallableStatement st = n.cx.prepareCall("{call  ingresarcompra (?,?,?,?)}");
+            st.setString(1, jTextField4.getText());
+            st.setDouble(2, Double.parseDouble(jLabel7.getText()));
+            st.setInt(3, id);
+            st.setInt(4, idlogin);
+            st.execute();
             r.close();
             c.close();
         } catch (SQLException ex) {

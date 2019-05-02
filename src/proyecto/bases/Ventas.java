@@ -37,7 +37,6 @@ public class Ventas extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -78,6 +77,7 @@ public class Ventas extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
+        Menu.setBackground(new java.awt.Color(51, 153, 255));
         Menu.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         Menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -85,8 +85,10 @@ public class Ventas extends javax.swing.JDialog {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        jPanel3.setBackground(new java.awt.Color(51, 153, 255));
         java.awt.GridBagLayout jPanel3Layout = new java.awt.GridBagLayout();
         jPanel3Layout.columnWidths = new int[] {0, 17, 0, 17, 0, 17, 0, 17, 0, 17, 0, 17, 0, 17, 0, 17, 0};
         jPanel3Layout.rowHeights = new int[] {0, 18, 0, 18, 0, 18, 0, 18, 0, 18, 0};
@@ -96,14 +98,7 @@ public class Ventas extends javax.swing.JDialog {
         gridBagConstraints.gridy = 0;
         jPanel3.add(jLabel11, gridBagConstraints);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel10.setText("Cerrar Sesión");
-        jLabel10.setComponentPopupMenu(jPopupMenu1);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 0;
-        jPanel3.add(jLabel10, gridBagConstraints);
-
+        jTextField1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);
@@ -120,6 +115,7 @@ public class Ventas extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(23, 0, 0, 0);
         jPanel3.add(jTextField1, gridBagConstraints);
 
+        jTextField2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
@@ -137,6 +133,7 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jTextField2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CAMBIO");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -146,6 +143,7 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
@@ -153,6 +151,7 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jLabel4, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("TOTAL");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -162,20 +161,24 @@ public class Ventas extends javax.swing.JDialog {
         jPanel3.add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 8;
         jPanel3.add(jLabel2, gridBagConstraints);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("VENDEDOR-----------");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         jPanel3.add(jLabel9, gridBagConstraints);
 
+        jButton1.setBackground(new java.awt.Color(0, 51, 255));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("VENDER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,14 +197,19 @@ public class Ventas extends javax.swing.JDialog {
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.EAST);
 
+        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane1.setBackground(new java.awt.Color(51, 153, 255));
 
         jTable1 = new javax.swing.JTable(){
             public boolean isCellEditable(int filas, int columnas){
                 return false;
             }
         };
-        jTable1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTable1.setBackground(new java.awt.Color(51, 153, 255));
+        jTable1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -211,6 +219,8 @@ public class Ventas extends javax.swing.JDialog {
             }
         ));
         jTable1.setToolTipText("");
+        jTable1.setFillsViewportHeight(true);
+        jTable1.setGridColor(new java.awt.Color(51, 153, 255));
         jTable1.setRowHeight(25);
         jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -225,11 +235,14 @@ public class Ventas extends javax.swing.JDialog {
 
         Menu.addTab("VENTA", jPanel1);
 
+        jPanel4.setBackground(new java.awt.Color(51, 153, 255));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel10.setOpaque(false);
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("_______________________________");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -237,6 +250,7 @@ public class Ventas extends javax.swing.JDialog {
         jPanel10.add(jLabel6, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("VENDEDOR");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -250,14 +264,20 @@ public class Ventas extends javax.swing.JDialog {
 
         jPanel4.add(jPanel10);
 
+        jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.CardLayout());
+
+        jScrollPane2.setBackground(new java.awt.Color(51, 153, 255));
+        jScrollPane2.setForeground(new java.awt.Color(255, 255, 255));
 
         jTable2 = new javax.swing.JTable(){
             public boolean isCellEditable(int filas, int columnas){
                 return false;
             }
         };
+        jTable2.setBackground(new java.awt.Color(51, 153, 255));
         jTable2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jTable2.setForeground(new java.awt.Color(255, 255, 255));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -267,6 +287,7 @@ public class Ventas extends javax.swing.JDialog {
             }
         ));
         jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable2.setFillsViewportHeight(true);
         jTable2.setRowHeight(25);
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -281,16 +302,24 @@ public class Ventas extends javax.swing.JDialog {
 
         Menu.addTab("DETALLE VENTA", jPanel4);
 
+        jPanel7.setBackground(new java.awt.Color(51, 153, 255));
         jPanel7.setLayout(new java.awt.BorderLayout());
 
+        jPanel9.setOpaque(false);
         jPanel9.setLayout(new java.awt.CardLayout());
+
+        jScrollPane3.setBackground(new java.awt.Color(51, 153, 255));
+        jScrollPane3.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTable3 = new javax.swing.JTable(){
             public boolean isCellEditable(int filas, int columnas){
                 return false;
             }
         };
+        jTable3.setBackground(new java.awt.Color(51, 153, 255));
         jTable3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jTable3.setForeground(new java.awt.Color(255, 255, 255));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -299,6 +328,7 @@ public class Ventas extends javax.swing.JDialog {
                 "CANTIDAD", "DESCRIPCION", "PRECIO/UNIDAD", "PRECIO TOTAL"
             }
         ));
+        jTable3.setFillsViewportHeight(true);
         jTable3.setRowHeight(25);
         jScrollPane3.setViewportView(jTable3);
 
@@ -306,16 +336,19 @@ public class Ventas extends javax.swing.JDialog {
 
         jPanel7.add(jPanel9, java.awt.BorderLayout.PAGE_START);
 
+        jPanel8.setOpaque(false);
         jPanel8.setLayout(new java.awt.GridLayout(1, 0));
         jPanel8.add(jLabel12);
         jPanel8.add(jLabel13);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("TOTAL");
         jPanel8.add(jLabel7);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("0");
         jPanel8.add(jLabel8);
@@ -337,7 +370,6 @@ public class Ventas extends javax.swing.JDialog {
     public void imagens() {
         ImageIcon imagen = new ImageIcon("src" + File.separator + "imagenes" + File.separator + "salir.jpg");
         imagen = new ImageIcon(imagen.getImage().getScaledInstance(WIDTH, HEIGHT, WIDTH));
-        jLabel10.setIcon(imagen);
     }    public void asignar(String cadena, int cantidad, double precio) {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         boolean encontrado = true;
@@ -470,7 +502,6 @@ public class Ventas extends javax.swing.JDialog {
     private javax.swing.JTabbedPane Menu;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
